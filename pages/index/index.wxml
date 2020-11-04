@@ -1,0 +1,19 @@
+<!--index.wxml-->
+<view >
+  
+<view class="head">
+  <view class="userInfo">
+    <image class="userAvatar" mode='aspectFill' src="{{userInfo.avatarUrl}}"></image>
+    <text class="userWelcome">欢迎您，{{userInfo.nickName}}</text>
+    <button style='border:0;background-color:#fff;font-size:small;width:fit-content;margin-left:20rpx;margin-right:30rpx;padding-top:0;padding-bottom:0;padding-left:0;padding-right:0;align-self:center;color:#ea3c3c' bindtap="onUserLogin"> {{btnLoginStr}}</button>
+  </view>
+  <swiper class="banner" indicator-dots="true" autoplay="true">
+    <block wx:for="{{bannerData}}" wx:key="*this">
+        <swiper-item>
+            <image src="{{item}}" mode='aspectFill' style='width:100%'></image>
+        </swiper-item>
+    </block>
+  </swiper>
+</view>
+ 
+</view>
