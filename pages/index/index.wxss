@@ -6,13 +6,15 @@
   box-sizing: border-box;
   padding-left: 10rpx;
   padding-right: 10rpx;
-  align-items: flex-end;
+  
 }
 .userInfo{
   display: flex;
   flex-direction: row;
+  height: 50rpx;
   padding-top: 10rpx;
   padding-bottom: 10rpx;
+  align-self: flex-end;
 }
 .userAvatar
 {
@@ -23,7 +25,7 @@
 {
 
   font-size: small;
-  font-weight: 550;
+  font-weight: 350;
   margin-left: 10rpx;
   align-self: center;
 }
@@ -31,4 +33,39 @@
 .banner{
   width: 100%;
   height: 450rpx;
+}
+.body
+{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 15rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  
+}
+.bodyWelcome
+{
+  font-size: 35rpx;
+  font-weight: 350;
+  padding-left: 15rpx;
+}
+.bodyCanteen
+{
+  display: flex;
+  flex-direction: row;
+  padding-top: 10rpx;
+}
+.bodyCanteenText
+{
+  font-size: 26rpx;
+  color: gray;
+  align-self: center;
+}
+.bodyGpsIcon
+{
+  width : 45rpx;
+  height : 45rpx;
+  margin-right : 15rpx;
+  
 }
