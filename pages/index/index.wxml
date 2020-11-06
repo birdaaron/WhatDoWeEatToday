@@ -19,16 +19,47 @@
 
 <view class="body">
   <view>
-    <text class="bodyWelcome">中午好</text>
+    <text class="bodyWelcome">{{time}}好</text>
     <text class="bodyWelcome" wx:if="{{isLogin}}">, {{userInfo.nickName}}</text>
   </view>
   <view class="bodyCanteen">
     <image class="bodyGpsIcon" mode="aspectFill" src="/image/icon_gps.png"></image>
     <view class="bodyCanteenText">
-      <text >附件饭堂：{{nearestCanteen}}</text>
-    </view>
-    
+      <text >附件饭堂：{{nearestCanteen}} 约{{nearestCanteenDistance}}公里</text>
+    </view>  
   </view>
-
+  <button style="width:650rpx;height:110rpx" class="bodyButton">
+    <view class="bodyButtonView">
+      <image class="bodyButtonIcon" mode="aspectFill" src="/image/icon_chose_free.png"></image>
+      <view class="bodyButtonTextView">
+        <text>自主选餐</text>
+        <text class="bodyButtonEngText">Chose Freely</text>
+      </view>
+    </view>
+  </button>
+  <button style="width:650rpx;height:110rpx" class="bodyButton">
+    <view class="bodyButtonView">
+      <image class="bodyButtonIcon" mode="aspectFill" src="/image/icon_chose_random.png"></image>
+      <view class="bodyButtonTextView">
+        <text>随机选餐</text>
+        <text class="bodyButtonEngText">Chose Randomly</text>
+      </view>
+    </view>
+  </button>
 </view> 
+<view class = "foot">
+  <text style="font-size:35rpx;font-weight:450;">推荐你吃</text>
+  <view class="footImageViewList">
+    <view class = "footImageView">
+    <view class="footTab">Top1</view>
+    <image class="footImage" src="/image/food_fqcd.jpg" ></image>
+  </view>
+  <view class = "footImageView">
+    <view class="footTab">Top2</view>
+    <image class="footImage" src="/image/food_ssj.jpg" ></image>
+  </view>
+  </view>
+  
+</view>
+
 </view>

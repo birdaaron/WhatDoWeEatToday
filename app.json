@@ -15,5 +15,37 @@
     "scope.userLocation": {
       "desc":"1"
     }
+  },
+  "tabBar": {
+    
+    "color": "#000000",
+    "selectedColor": "#ea3c3c",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list" : [
+      {
+        "text":"首页",
+        "iconPath":"/image/icon_main_us.png",
+        "selectedIconPath":"/image/icon_main_s.png",
+        "pagePath":"pages/index/index"
+      },
+      {
+        "text":"排行",
+        "iconPath":"/image/icon_rank_us.png",
+        "selectedIconPath":"/image/icon_rank_s.png",
+        "pagePath":"pages/index/index"
+      },
+      {
+        "text":"我的",
+        "iconPath":"/image/icon_mine_us.png",
+        "selectedIconPath":"/image/icon_mine_s.png",
+        "pagePath":"pages/index/index"
+      }
+    ]
+   
+  },
+  "useExtendedLib": {
+    "weui": true
   }
+
 }
