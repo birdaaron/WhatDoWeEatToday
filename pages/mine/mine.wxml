@@ -2,32 +2,31 @@
 <view>
   <view class="head">
     <view class = "headInfo">
-      <image class="headAvatar"  mode='aspectFill' src="/image/avatar.jpg"></image>
+      <image class="headAvatar"  mode='aspectFill' src="{{defaultAvatar}}"></image>
       <view class = "headInfoText">
         <view class = "headName">
-          <text style="font-size:50rpx;color:#fff">Sparks20</text>
-          <image class = "headIcon" mode='aspectFill' src="/image/icon_edit.png"></image>
+          <text style="font-size:50rpx;color:#fff">{{isLogin?userInfo.nickName:defaultName}}</text>
+          <image wx:if="{{isLogin}}" class = "headIcon" mode='aspectFill' src="/image/icon_edit.png" ></image>
         </view>
         <view class = "headCount">
           <view class="headCountItem">
             <text style="font-size:45rpx;color:#fff">评价</text>
-            <text style="font-size:45rpx;color:#fff;align-self:center">1</text>
+            <text style="font-size:45rpx;color:#fff;align-self:center">{{isLogin?1:0}}</text>
           </view>
           <view class="headCountItem">
             <text style="font-size:45rpx;color:#fff">评论</text>
-            <text style="font-size:45rpx;color:#fff;align-self:center">3</text>
+            <text style="font-size:45rpx;color:#fff;align-self:center">{{isLogin?3:0}}</text>
           </view>
         </view>
       </view>
-    </view>
-    
+    </view>  
   </view>
   
   <view class="body">
     <view class="bodyText">
       <text style = "font-size:40rpx">我的动态</text>
     </view>
-    <view class = "bodyDynamics">
+    <view wx:if = "{{isLogin}}" class = "bodyDynamics">
       <template is = "dynamicsItem"></template>
     </view>
    
@@ -42,8 +41,7 @@
         <view class = "itemHeadDetailText">
           <text style="font-size:25rpx;color:gray">30分钟前</text>
           <text style="font-size:25rpx;color:gray;margin-left:20rpx">评论了番茄炒蛋</text>
-        </view>
-        
+        </view>   
       </view>
     </view>
     <view class="itemBody">

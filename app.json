@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/mine/mine",
-    "pages/index/index"
-    
+    "pages/rank/rank"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,7 +33,7 @@
         "text": "排行",
         "iconPath": "/image/icon_rank_us.png",
         "selectedIconPath": "/image/icon_rank_s.png",
-        "pagePath": "pages/index/index"
+        "pagePath": "pages/rank/rank"
       },
       {
         "text": "我的",

@@ -14,11 +14,16 @@ Page({
   onLoad: function(options)
   {
     var _this = this;
+    
     _this.findNearestCanteen();
     _this.setData({
         time : new Date().toLocaleTimeString().substring(0,2)
     });
     
+  },
+  onShow:function(options)
+  {
+    console.log(getApp().globalData.userInfo);
   },
   findNearestCanteen() 
   {
@@ -64,6 +69,7 @@ Page({
   },
   onUserLogin : function(e)
   {
+    
     var _this = this;
     if(this.data.isLogin==false)
     {
@@ -72,7 +78,8 @@ Page({
         {
           _this.setData({
             isLogin : true
-          })
+          });
+          getApp().globalData.isLogin = true;
         }
       })
       wx.getUserInfo({
@@ -92,6 +99,7 @@ Page({
       _this.setData({
         isLogin : false
       });
+      getApp().globalData.isLogin = false;
     }  
     
   }
