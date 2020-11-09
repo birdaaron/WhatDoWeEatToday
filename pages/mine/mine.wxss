@@ -1,0 +1,61 @@
+/* pages/mine.wxss */
+.head
+{
+  background-color: #ea3c3c;
+  width: 100%;
+  height:350rpx;
+}
+.headInfo
+{
+  padding-top: 10rpx;
+  padding-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.headInfoText
+{
+  display: flex;
+  flex-direction: column;
+  margin-left: 80rpx;
+}
+.headCount
+{
+  display: flex;
+  flex-direction: row;
+}
+.headCountItem
+{
+  display: flex;
+  flex-direction: column;
+  padding-top: 20rpx;
+  padding-left:0rpx;
+  padding-right: 100rpx;
+}
+.headName
+{
+  display: flex;
+  flex-direction: row;
+  padding-top: 15rpx;
+}
+.headIcon
+{
+  width:75rpx;
+  height:75rpx;
+}
+.headAvatar
+{
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 250rpx;
+}
+.body
+{
+  background-color: #eeeeee;
+  width: 100%;
+  height: 770rpx;
+}
+.bodyText
+{
+  background-color: #fff;
+  padding: 20rpx;
+}

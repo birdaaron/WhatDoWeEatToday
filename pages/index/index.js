@@ -9,6 +9,7 @@ Page({
     nearestCanteen :"",
     nearestCanteenDistance :0,
     time:"",
+    userInfo:null,
   },
   onLoad: function(options)
   {
@@ -25,10 +26,6 @@ Page({
     wx.getLocation({
       success : function(res)
       {
-        console.log(res.latitude);
-        
-        console.log(res.longitude);
-
          var distance1 = _this.getDistance(res.latitude,res.longitude,23.050244,113.401579);
          var distance2 = _this.getDistance(res.latitude,res.longitude,23.04839,113.399365);
          var distance3 = _this.getDistance(res.latitude,res.longitude,23.048399,113.394487);
@@ -63,8 +60,6 @@ Page({
     var b = (long1-long2)*Math.PI/180.0;
     var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a/2),2)+Math.cos(lat1*Math.PI/180.0)*Math.cos(lat2*Math.PI/180.0)*Math.pow(Math.sin(b/2),2)));
     s = s*6378.137;
-    
-    
     return s;
   },
   onUserLogin : function(e)
@@ -87,7 +82,8 @@ Page({
             {
               userInfo : res.userInfo
             }
-          )
+          );
+          getApp().globalData.userInfo = res.userInfo;
         }
       })
     }

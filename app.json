@@ -1,51 +1,49 @@
 {
-  "pages":[
+  "pages": [
+    "pages/mine/mine",
     "pages/index/index"
     
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ea3c3c",
     "navigationBarTitleText": "今天吃什么",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
-  "permission":{
+  "permission": {
     "scope.userLocation": {
-      "desc":"1"
+      "desc": "1"
     }
   },
   "tabBar": {
-    
     "color": "#000000",
     "selectedColor": "#ea3c3c",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
-    "list" : [
+    "list": [
       {
-        "text":"首页",
-        "iconPath":"/image/icon_main_us.png",
-        "selectedIconPath":"/image/icon_main_s.png",
-        "pagePath":"pages/index/index"
+        "text": "首页",
+        "iconPath": "/image/icon_main_us.png",
+        "selectedIconPath": "/image/icon_main_s.png",
+        "pagePath": "pages/index/index"
       },
       {
-        "text":"排行",
-        "iconPath":"/image/icon_rank_us.png",
-        "selectedIconPath":"/image/icon_rank_s.png",
-        "pagePath":"pages/index/index"
+        "text": "排行",
+        "iconPath": "/image/icon_rank_us.png",
+        "selectedIconPath": "/image/icon_rank_s.png",
+        "pagePath": "pages/index/index"
       },
       {
-        "text":"我的",
-        "iconPath":"/image/icon_mine_us.png",
-        "selectedIconPath":"/image/icon_mine_s.png",
-        "pagePath":"pages/index/index"
+        "text": "我的",
+        "iconPath": "/image/icon_mine_us.png",
+        "selectedIconPath": "/image/icon_mine_s.png",
+        "pagePath": "pages/mine/mine"
       }
     ]
-   
   },
   "useExtendedLib": {
     "weui": true
   }
-
 }
