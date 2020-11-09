@@ -59,3 +59,43 @@
   background-color: #fff;
   padding: 20rpx;
 }
+.bodyDynamics
+{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+.itemView
+{
+  display: flex;
+  flex-direction: column;
+  padding: 10rpx;
+  background-color: #fff;
+}
+.itemHead
+{
+  display: flex;
+  flex-direction: row;
+}
+.itemHeadText
+{
+  display: flex;
+  flex-direction: column;
+  padding-left: 10rpx;
+}
+.itemHeadDetailText
+{
+  display: flex;
+  flex-direction: row;
+  padding-top : 0rpx;
+}
+.itemAvatar
+{
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 70rpx;
+}
+.itemBody
+{
+  
+}

@@ -27,5 +27,27 @@
     <view class="bodyText">
       <text style = "font-size:40rpx">我的动态</text>
     </view>
+    <view class = "bodyDynamics">
+      <template is = "dynamicsItem"></template>
+    </view>
+   
   </view>
 </view>
+<template name = "dynamicsItem">
+  <view class = "itemView">
+    <view class = "itemHead">
+      <image class="itemAvatar"  mode='aspectFill' src="/image/avatar.jpg"></image>
+      <view class="itemHeadText">
+        <text style="font-size:25rpx;font-weight:600;">Sparks20</text>
+        <view class = "itemHeadDetailText">
+          <text style="font-size:25rpx;color:gray">30分钟前</text>
+          <text style="font-size:25rpx;color:gray;margin-left:20rpx">评论了番茄炒蛋</text>
+        </view>
+        
+      </view>
+    </view>
+    <view class="itemBody">
+      <text style="font-size:33rpx;margin-left:80rpx;margin-top:20rpx">番茄炒蛋太好吃了</text>
+    </view>
+  </view>
+</template>
