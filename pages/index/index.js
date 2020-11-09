@@ -21,10 +21,7 @@ Page({
     });
     
   },
-  onShow:function(options)
-  {
-    console.log(getApp().globalData.userInfo);
-  },
+  
   findNearestCanteen() 
   {
     var _this = this;

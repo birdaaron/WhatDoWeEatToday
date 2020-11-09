@@ -2,7 +2,7 @@
 <view>
   <view class="head">
     <view class = "headInfo">
-      <image class="headAvatar"  mode='aspectFill' src="{{defaultAvatar}}"></image>
+      <image class="headAvatar"  mode='aspectFill' src="{{isLogin?userAvatar:defaultAvatar}}"></image>
       <view class = "headInfoText">
         <view class = "headName">
           <text style="font-size:50rpx;color:#fff">{{isLogin?userInfo.nickName:defaultName}}</text>

@@ -28,7 +28,7 @@
       <text >附件饭堂：{{nearestCanteen}} 约{{nearestCanteenDistance}}公里</text>
     </view>  
   </view>
-  <button style="width:650rpx;height:110rpx" class="bodyButton">
+  <button  style="width:650rpx;" class="bodyButton">
     <view class="bodyButtonView">
       <image class="bodyButtonIcon" mode="aspectFill" src="/image/icon_chose_free.png"></image>
       <view class="bodyButtonTextView">
@@ -37,7 +37,7 @@
       </view>
     </view>
   </button>
-  <button style="width:650rpx;height:110rpx" class="bodyButton">
+  <button style="width:650rpx;" class="bodyButton">
     <view class="bodyButtonView">
       <image class="bodyButtonIcon" mode="aspectFill" src="/image/icon_chose_random.png"></image>
       <view class="bodyButtonTextView">
@@ -57,6 +57,14 @@
   <view class = "footImageView">
     <view class="footTab">Top2</view>
     <image class="footImage" src="/image/food_ssj.jpg" ></image>
+  </view>
+  <view class = "footImageView">
+    <view class="footTab">Top3</view>
+    <image class="footImage" src="/image/food_ymcxc.jpg" ></image>
+  </view>
+  <view class = "footImageView">
+    <view class="footTab">Top4</view>
+    <image class="footImage" src="/image/food_qjcr.jpg" ></image>
   </view>
   </view>
   

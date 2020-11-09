@@ -6,13 +6,13 @@ Page({
   {
     userInfo:null,
     isLogin : false,
+    userAvatar: "/image/avatar.jpg",
     defaultAvatar : "/image/default_avatar.png",
     defaultName : "欢迎您"
   },
 
   onLoad: function(options)
   {
-    console.log(getApp().globalData.userInfo);
     this.setData(
       {
         userInfo : getApp().globalData.userInfo,

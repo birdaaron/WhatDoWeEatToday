@@ -81,11 +81,13 @@
 {
   display: flex;
   flex-direction: row;
-  margin-left: 160rpx;
+  width: 100%;
+  padding-left: 135rpx;
+  
 }
 .bodyButtonIcon
 {
-   margin-top: 10rpx;
+  padding-top: 10rpx;
    width:60rpx;
    height:60rpx;
 }
@@ -117,6 +119,7 @@
   margin-top: 10rpx;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .footImage
 {
