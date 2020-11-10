@@ -29,7 +29,7 @@
     </view>  
   </view>
   <button  style="width:650rpx;" class="bodyButton">
-    <view class="bodyButtonView">
+    <view class="bodyButtonView" bindtap="onChoseFreeClick">
       <image class="bodyButtonIcon" mode="aspectFill" src="/image/icon_chose_free.png"></image>
       <view class="bodyButtonTextView">
         <text>自主选餐</text>

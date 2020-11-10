@@ -1,0 +1,54 @@
+/* pages/chose/chose.wxss */
+.mContainer
+{
+  background-color: #eaeaea;
+  height: 100vh;
+}
+.headSwiper
+{
+  width: 100%;
+  height: 90vh;
+}
+.headTab
+{
+  color: #ea3c3c;
+  font-size: large;
+  background-color: #fff;
+  width: 18vw;
+
+  padding-left: 19vw;
+  padding-right:14vw;
+  padding-top:20rpx;
+  padding-bottom:20rpx;
+}
+.headActiveTab
+{
+  font-weight: 550;
+}
+.tabCanteen
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+ 
+}
+.canteenView
+{
+  margin-top: 20rpx;
+}
+.imageTab
+{
+  color: #ffffff;
+  font-size: large;
+  background-color: #ea3c3c;
+  position: absolute;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+.canteenImage
+{
+  width: 550rpx;
+  height: 250rpx;
+  box-shadow:0px 2px 5px 5px rgba(46, 46, 46, 0.274);
+}

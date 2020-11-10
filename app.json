@@ -1,8 +1,10 @@
 {
   "pages": [
+    "pages/chose/chose",
     "pages/index/index",
     "pages/mine/mine",
     "pages/rank/rank"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -44,6 +46,6 @@
     ]
   },
   "useExtendedLib": {
-    "weui": true
+   
   }
 }

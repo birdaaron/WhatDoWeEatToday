@@ -56,6 +56,12 @@ Page({
       }
     })
   },
+  onChoseFreeClick : function(e)
+  {
+    wx.navigateTo({
+      url: '/pages/chose/chose',
+    })
+  },
   getDistance(lat1,long1,lat2,long2)
   {
     var a = (lat1-lat2)*Math.PI/180.0;

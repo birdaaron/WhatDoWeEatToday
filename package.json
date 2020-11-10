@@ -1,0 +1,24 @@
+{
+  "name": "whatdoweeattoday",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birdaaron/WhatDoWeEatToday.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/birdaaron/WhatDoWeEatToday/issues"
+  },
+  "homepage": "https://github.com/birdaaron/WhatDoWeEatToday#readme",
+  "dependencies": {
+    "@miniprogram-component-plus/tabs": "^1.0.0",
+    "weui-miniprogram": "^1.0.6"
+  },
+  "devDependencies": {},
+  "description": ""
+}

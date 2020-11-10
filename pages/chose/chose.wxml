@@ -1,0 +1,35 @@
+<view class = "mContainer">
+    <mp-tabs 
+    tabs = "{{tabs}}"
+    tab-class = "headTab"
+    tab-underline-color = "#ea3c3c"
+    active-class = "headActiveTab"
+    swiper-class = "headSwiper"
+    >
+    <block wx:for="{{tabs}}" wx:key="title">
+        <view class = "tab-content" slot="tab-content-{{index}}">
+            <view wx:if="{{index==0}}" class = "tabCanteen">
+                <view class = "canteenView">
+                    <view class = "imageTab">一饭</view>
+                    <image class = "canteenImage" mode="aspectFill" src = "/image/canteen1.png"></image>
+                </view> 
+                <view class = "canteenView">
+                    <view class = "imageTab">二饭</view>
+                    <image class = "canteenImage" mode="aspectFill" src = "/image/canteen2.png"></image>
+                </view> 
+                <view class = "canteenView">
+                    <view class = "imageTab">三饭</view>
+                    <image class = "canteenImage" mode="aspectFill" src = "/image/canteen3.png"></image>
+                </view> 
+                <view class = "canteenView">
+                    <view class = "imageTab">四饭</view>
+                    <image class = "canteenImage" mode="aspectFill" src = "/image/canteen4.png"></image>
+                </view> 
+            </view>
+            <view wx:if="{{index==1}}"> 1</view>
+        </view>
+    </block>
+    
+    </mp-tabs>
+</view>
+
