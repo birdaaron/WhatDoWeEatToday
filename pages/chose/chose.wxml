@@ -26,10 +26,30 @@
                     <image class = "canteenImage" mode="aspectFill" src = "/image/canteen4.png"></image>
                 </view> 
             </view>
-            <view wx:if="{{index==1}}"> 1</view>
+            <view wx:if="{{index==1}}" class = "tabDishesType">
+                <mp-vtabs 
+                vtabs="{{dishesTypeTab}}" 
+                tab-line-color="#ea3c3c"
+                active-tab = "3" 
+                bindtabclick = "onTypeTabClick">
+                    <block wx:for = "{{dishes}}" wx:key = "name">
+                        <vtab-content tabIndex = "{{index}}">
+                            <template is = "dishesItem" data = "{{...item}}"></template>
+                        </vtab-content>
+                    </block>
+                </mp-vtabs>
+            </view>
         </view>
     </block>
-    
     </mp-tabs>
+    
 </view>
-
+<template name = "dishesItem">
+    <view class = "dishesView">
+        <image class="dishesImage"  mode='aspectFill' src="{{cover}}"></image>
+        <view class = "dishesInfo">
+            <text style="font-size:large;font-weight:600;margin-top:20rpx;margin-bottom:10rpx">{{name}}</text>
+            <text style="font-size:medium;color:gray;margin-top:10rpx">点赞：{{like}}</text>
+        </view>
+    </view>
+</template>

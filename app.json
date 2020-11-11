@@ -1,10 +1,9 @@
 {
   "pages": [
-    "pages/chose/chose",
     "pages/index/index",
     "pages/mine/mine",
-    "pages/rank/rank"
-    
+    "pages/rank/rank",
+    "pages/chose/chose"
   ],
   "window": {
     "backgroundTextStyle": "light",
