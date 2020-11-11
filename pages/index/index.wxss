@@ -74,8 +74,6 @@
     border-radius: 30px;
     background: #c92121;
     color: white;
-    
-    
 }
 .bodyButtonView
 {
@@ -125,8 +123,6 @@
 {
   width:250rpx;
   height:220rpx;
-
-  
 }
 .footTab
 {
@@ -134,5 +130,6 @@
   font-size: large;
   background-color: #ea3c3c;
   position: absolute;
-
+  padding-left:10rpx;
+  padding-right:10rpx;
 }

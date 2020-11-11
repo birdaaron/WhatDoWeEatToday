@@ -1,2 +1,20 @@
-<!--pages/rank.wxml-->
-<text>pages/rank.wxml</text>
+<view>
+  <block wx:for="{{dishes}}" wx:key ="name">
+    <template is = "dishesItem" data = "{{...item,index}}"></template>
+  </block>
+</view>
+
+<template name = "dishesItem">
+    <view class = "dishesView">
+        <view class = "imageView">
+          <view class = "imageTab">Top{{index+1}}</view>
+          <image class="dishesImage"  mode='aspectFill' src="{{cover}}"></image>
+        </view>
+        
+        <view class = "dishesInfo">
+            <text style="font-size:larger;font-weight:600;margin-top:40rpx;margin-bottom:5rpx">{{name}}</text>
+            <text style="font-size:medium;color:gray;margin-top:10rpx">点赞：{{like}}</text>
+            <text style="font-size:medium;color:gray;margin-top:5rpx">评论：{{count}}</text>
+        </view>
+    </view>
+</template>
