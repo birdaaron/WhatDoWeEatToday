@@ -1,0 +1,45 @@
+<view class = "mContainer">
+  <view class = "head">
+    <image class = "headImage" mode="scaleToFill" src = "/image/food_ssj.jpg"></image>
+  </view>
+ 
+  <view class = "body">
+    <view class = "bodyLeft">
+      <text style = "font-size:45rpx;font-weight:600;">手撕鸡</text>
+      <text style="color:gray">分类：鸡</text>
+      <text style="color:gray">位置：三饭·一楼·一号窗口</text>
+    </view>
+    <view class = "bodyRight">
+      <image class = "likeImage" mode="aspectFill" src = "/image/icon_like.png"></image>
+      <text style="color:gray">(140)</text>
+    </view>
+  </view>
+  <view class = "grayW"></view>
+  <view class = "foot">
+      <text style = "font-size:45rpx;font-weight:600;padding-left:20rpx;padding-top:10rpx;paddng-bottom:25rpx;">菜肴评价</text>
+      <template is = "dynamicsItem"></template>
+      <template is = "dynamicsItem"></template><template is = "dynamicsItem"></template><template is = "dynamicsItem"></template><template is = "dynamicsItem"></template>
+    </view>
+  <view class = "comment">
+    <view class = "commentText">点击输入评论</view>
+    <view class = "commentBtn">发送</view>
+  </view>
+</view>
+
+<template name = "dynamicsItem">
+  <view class = "itemView">
+    <view class = "itemHead">
+      <image class="itemAvatar"  mode='aspectFill' src="/image/avatar.jpg"></image>
+      <view class="itemHeadText">
+        <text style="font-size:25rpx;font-weight:600;">Sparks20</text>
+        <view class = "itemHeadDetailText">
+          <text style="font-size:25rpx;color:gray">30分钟前</text>
+        
+        </view>   
+      </view>
+    </view>
+    <view class="itemBody">
+      <text style="font-size:33rpx;margin-left:80rpx;margin-top:20rpx">番茄炒蛋太好吃了</text>
+    </view>
+  </view>
+</template>

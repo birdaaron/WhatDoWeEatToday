@@ -10,6 +10,8 @@ Page({
     nearestCanteenDistance :0,
     time:"",
     userInfo:null,
+    openId :"",
+    loginDTO :{}
   },
   onLoad: function(options)
   {
@@ -70,39 +72,80 @@ Page({
     s = s*6378.137;
     return s;
   },
+  setLogin(isLogin)
+  {
+    var _this = this
+    _this.setData({
+      isLogin : isLogin
+    });
+    getApp().globalData.isLogin = isLogin;
+  },
   onUserLogin : function(e)
   {
+    var _this = this
     
-    var _this = this;
-    if(this.data.isLogin==false)
+    if(!_this.data.isLogin)
     {
       wx.login({
         success : function(res)
         {
-          _this.setData({
-            isLogin : true
-          });
-          getApp().globalData.isLogin = true;
-        }
-      })
-      wx.getUserInfo({
-        success : function(res)
-        {
-          _this.setData(
+          _this.setLogin(true)
+          wx.request({
+            url: 'http://localhost:8527/api/user/code2session',
+            data: 
             {
-              userInfo : res.userInfo
+              code : res.code
+            },
+            success : function(res)
+            {
+              
+              _this.setData(
+                {
+                  "openId" : res.data.data.openid
+                }
+              )
+              
+              wx.getUserInfo({
+                success : function(res)
+                {
+                  _this.setData(
+                    {
+                      "loginDTO" :
+                      {
+                        "encryptedData" : res.encryptedData,
+                        "iv" : res.iv,
+                        "openid" : _this.data.openId,
+                        "rawData" : res.rawData,
+                        "signature": res.signature
+                      }
+                    }
+                  )
+                  
+                  console.log(_this.data.loginDTO.signature)
+                  console.log(JSON.stringify(_this.data.loginDTO))
+                  wx.request({
+                    url: 'http://localhost:8527/api/user/login',
+                    method:"POST",
+                    data : JSON.stringify(_this.data.loginDTO),
+                    
+                    success : function(res)
+                    {
+                      console.log(res)
+                    }
+                  })
+                }
+              })
+              
             }
-          );
-          getApp().globalData.userInfo = res.userInfo;
+          })
         }
       })
+      
+      
     }
     else
     {
-      _this.setData({
-        isLogin : false
-      });
-      getApp().globalData.isLogin = false;
+      _this.setLogin(false)
     }  
     
   }
