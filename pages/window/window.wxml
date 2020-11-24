@@ -1,0 +1,39 @@
+<view class = "mContainer">
+    <mp-tabs 
+    tabs = "{{tabs}}"
+    tab-class = "headTab"
+    tab-underline-color = "#ea3c3c"
+    active-class = "headActiveTab"
+    swiper-class = "headSwiper"
+    bindtabclick = "onFloorClick"
+    >
+    <block wx:for="{{tabs}}" wx:key="title">
+      <view class = "tab-content" slot="tab-content-{{index}}">
+            <view wx:if="{{index==0}}"  >
+              <view class = "tabFloor" wx:for="{{windows}}" bindtap="onWindowClick" 
+              data-index="{{index}}">
+                <template is = "dishesItem" data = "{{...item}}"></template>
+              </view>
+               
+            </view>
+            <view wx:if="{{index==1}}">
+              <view class = "tabFloor" wx:for="{{windows}}" bindtap="onWindowClick" 
+              data-index="{{index}}">
+                <template is = "dishesItem" data = "{{...item}}"></template>
+              </view>
+            </view>
+        </view>
+    </block>
+</mp-tabs>
+</view>
+<template name = "dishesItem">
+    <view class = "dishesView">
+        <view class = "imageView">
+          <image class="dishesImage"  mode='aspectFill' src="{{url}}"></image>
+        </view>
+        <view class = "dishesInfo">
+            <text style="font-size:larger;font-weight:600;margin-top:30rpx;margin-bottom:5rpx">{{windowName}}</text>
+            <text style="font-size:medium;color:gray;margin-top:10rpx;text-overflow:ellipsis;">{{dishNameList}}</text>
+        </view>
+    </view>
+</template>

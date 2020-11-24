@@ -9,19 +9,19 @@
     <block wx:for="{{tabs}}" wx:key="title">
         <view class = "tab-content" slot="tab-content-{{index}}">
             <view wx:if="{{index==0}}" class = "tabCanteen">
-                <view class = "canteenView">
+                <view class = "canteenView" bindtap="onCanteenClick" data-index="1">
                     <view class = "imageTab">一饭</view>
                     <image class = "canteenImage" mode="aspectFill" src = "/image/canteen1.png"></image>
                 </view> 
-                <view class = "canteenView">
+                <view class = "canteenView" bindtap="onCanteenClick" data-index="2">
                     <view class = "imageTab">二饭</view>
                     <image class = "canteenImage" mode="aspectFill" src = "/image/canteen2.png"></image>
                 </view> 
-                <view class = "canteenView">
+                <view class = "canteenView" bindtap="onCanteenClick" data-index="3">
                     <view class = "imageTab">三饭</view>
                     <image class = "canteenImage" mode="aspectFill" src = "/image/canteen3.png"></image>
                 </view> 
-                <view class = "canteenView">
+                <view class = "canteenView" bindtap="onCanteenClick" data-index="4">
                     <view class = "imageTab">四饭</view>
                     <image class = "canteenImage" mode="aspectFill" src = "/image/canteen4.png"></image>
                 </view> 
@@ -29,8 +29,8 @@
             <view wx:if="{{index==1}}" class = "tabDishesType">
                 <mp-vtabs 
                 vtabs="{{dishesTypeTab}}" 
-                tab-line-color="#ea3c3c"
-                active-tab = "3" 
+                tab-line-color="#ea3c3c"  
+                active-tab = "2" 
                 bindtabclick = "onTypeTabClick">
                     <block wx:for = "{{dishes}}" wx:key = "name">
                         <vtab-content tabIndex = "{{index}}">

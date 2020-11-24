@@ -71,6 +71,14 @@
   text-align: center;
   color: #d6d6d6;
 }
+.commentInput
+{
+  background-color: #fff;
+  width: 75vw;
+  height: 50rpx;
+  padding-left: 10rpx;
+  color: #d6d6d6;
+}
 .commentBtn
 {
   background-color: #ea3c3c;

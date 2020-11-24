@@ -9,6 +9,7 @@ Page({
     nearestCanteen :"",
     nearestCanteenDistance :0,
     time:"",
+    top4 : [],
     userInfo:null,
     openId :"",
     loginDTO :{}
@@ -16,14 +17,28 @@ Page({
   onLoad: function(options)
   {
     var _this = this;
-    
     _this.findNearestCanteen();
+    _this.getTop4();
     _this.setData({
         time : new Date().toLocaleTimeString().substring(0,2)
     });
     
   },
-  
+  getTop4()
+  {
+    var _this = this;
+    wx.request({
+      url: 'https://www.whattoeat.top:9999/api/homePage/recommend/4',
+      success : function(res)
+      {
+        _this.setData(
+          {
+            top4 : res.data.data
+          }
+        )
+      }
+    })
+  },
   findNearestCanteen() 
   {
     var _this = this;
@@ -91,7 +106,7 @@ Page({
         {
           _this.setLogin(true)
           wx.request({
-            url: 'http://localhost:8527/api/user/code2session',
+            url: 'https://www.whattoeat.top:9999/api/user/code2session',
             data: 
             {
               code : res.code
@@ -108,8 +123,10 @@ Page({
               wx.getUserInfo({
                 success : function(res)
                 {
+                 
                   _this.setData(
                     {
+                      "userInfo" : res.userInfo,
                       "loginDTO" :
                       {
                         "encryptedData" : res.encryptedData,
@@ -118,16 +135,15 @@ Page({
                         "rawData" : res.rawData,
                         "signature": res.signature
                       }
+                  
                     }
                   )
                   
-                  console.log(_this.data.loginDTO.signature)
-                  console.log(JSON.stringify(_this.data.loginDTO))
+                  
                   wx.request({
-                    url: 'http://localhost:8527/api/user/login',
+                    url: 'https://www.whattoeat.top:9999/api/user/login',
                     method:"POST",
                     data : JSON.stringify(_this.data.loginDTO),
-                    
                     success : function(res)
                     {
                       console.log(res)

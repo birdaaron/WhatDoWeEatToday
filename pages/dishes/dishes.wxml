@@ -1,17 +1,17 @@
 <view class = "mContainer">
   <view class = "head">
-    <image class = "headImage" mode="scaleToFill" src = "/image/food_ssj.jpg"></image>
+    <image class = "headImage" mode="scaleToFill" src = "{{dishesData.cover}}"></image>
   </view>
  
   <view class = "body">
     <view class = "bodyLeft">
-      <text style = "font-size:45rpx;font-weight:600;">手撕鸡</text>
-      <text style="color:gray">分类：鸡</text>
-      <text style="color:gray">位置：三饭·一楼·一号窗口</text>
+      <text style = "font-size:45rpx;font-weight:600;">{{dishesData.name}}</text>
+      <text style="color:gray">分类：{{dishesData.typename}}</text>
+      <text style="color:gray">位置：{{dishesData.location}}</text>
     </view>
     <view class = "bodyRight">
       <image class = "likeImage" mode="aspectFill" src = "/image/icon_like.png"></image>
-      <text style="color:gray">(140)</text>
+      <text style="color:gray;margin-left:5rpx">({{dishesData.support}})</text>
     </view>
   </view>
   <view class = "grayW"></view>
@@ -21,8 +21,8 @@
       <template is = "dynamicsItem"></template><template is = "dynamicsItem"></template><template is = "dynamicsItem"></template><template is = "dynamicsItem"></template>
     </view>
   <view class = "comment">
-    <view class = "commentText">点击输入评论</view>
-    <view class = "commentBtn">发送</view>
+    <input class = "commentInput"auto-focus placeholder="{{isLogin?'留下你的评论吧(●ˇ∀ˇ●)':'登录后才能评论噢(●ˇ∀ˇ●)'}}"/>
+    <view wx:if = "{{isLogin}}" class = "commentBtn">发送</view>
   </view>
 </view>
 

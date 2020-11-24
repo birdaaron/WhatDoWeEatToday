@@ -52,19 +52,19 @@
   <view class="footImageViewList">
     <view class = "footImageView">
     <view class="footTab">Top1</view>
-    <image class="footImage" src="/image/food_fqcd.jpg" ></image>
+    <image class="footImage" src="{{top4[0].cover}}" ></image>
   </view>
   <view class = "footImageView">
     <view class="footTab">Top2</view>
-    <image class="footImage" src="/image/food_ssj.jpg" ></image>
+    <image class="footImage" src="{{top4[1].cover}}" ></image>
   </view>
   <view class = "footImageView">
     <view class="footTab">Top3</view>
-    <image class="footImage" src="/image/food_ymcxc.jpg" ></image>
+    <image class="footImage" src="{{top4[2].cover}}" ></image>
   </view>
   <view class = "footImageView">
     <view class="footTab">Top4</view>
-    <image class="footImage" src="/image/food_qjcr.jpg" ></image>
+    <image class="footImage" src="{{top4[3].cover}}" ></image>
   </view>
   </view>
   

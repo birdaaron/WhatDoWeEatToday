@@ -1,16 +1,13 @@
 <view>
   <view wx:for="{{dishes}}" wx:key="name"  bindtap = "onDishesClick" data-index="{{index}}"> 
-      <template is = "dishesItem" data = "{{...item,index}}" ></template>
+    <template is = "dishesItem" data = "{{...item}}" ></template>
   </view>
 </view>
-
 <template name = "dishesItem">
     <view class = "dishesView">
         <view class = "imageView">
-          <view class = "imageTab">Top{{index+1}}</view>
           <image class="dishesImage"  mode='aspectFill' src="{{cover}}"></image>
-        </view>
-        
+        </view> 
         <view class = "dishesInfo">
             <text style="font-size:larger;font-weight:600;margin-top:40rpx;margin-bottom:5rpx">{{name}}</text>
             <text style="font-size:medium;color:gray;margin-top:10rpx">点赞：{{like}}</text>

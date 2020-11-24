@@ -1,11 +1,12 @@
 {
   "pages": [
-    "pages/dishes/dishes",
     "pages/index/index",
     "pages/mine/mine",
     "pages/rank/rank",
-    "pages/chose/chose"
-    
+    "pages/chose/chose",
+    "pages/dishes/dishes",
+    "pages/window/window",
+    "pages/dishesList/dishesList"
   ],
   "window": {
     "backgroundTextStyle": "light",

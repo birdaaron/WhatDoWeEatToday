@@ -1,28 +1,33 @@
-// pages/rank.js
+// pages/dishesList/dishesList.js
 Page({
 
-
-  data: {
+  /**
+   * 页面的初始数据
+   */
+  data: 
+  {
+    windowIs : 0,
     dishes : []
   },
-
   onLoad: function (options) 
   {
-    var _this = this;
+    var _this = this
+    this.setData(
+      {
+        windowId : options.windowId
+      }
+    )
     wx.request({
-      url: 'https://www.whattoeat.top:9999/api/rankingList/list',
-      success:function(res)
+      url: 'https://www.whattoeat.top:9999/api/selectByWindow/list?windowId='+_this.data.windowId,
+      success : function(res)
       {
         _this.setData(
           {
             dishes : res.data.data
           }
-        );
-       
-        
+        )
       }
     })
-    
   },
   onDishesClick : function (e)
   {
@@ -34,4 +39,5 @@ Page({
     })
     
   }
+
 })
