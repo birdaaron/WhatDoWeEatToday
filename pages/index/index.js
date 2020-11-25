@@ -22,7 +22,7 @@ Page({
     _this.setData({
         time : new Date().toLocaleTimeString().substring(0,2)
     });
-    
+    console.log(new Date().toLocaleTimeString())
   },
   getTop4()
   {
@@ -39,12 +39,18 @@ Page({
       }
     })
   },
+  bdToTx()
+  {
+
+  },
   findNearestCanteen() 
   {
     var _this = this;
     wx.getLocation({
       success : function(res)
       {
+        console.log(res.longitude)
+        console.log(res.latitude)
          var distance1 = _this.getDistance(res.latitude,res.longitude,23.050244,113.401579);
          var distance2 = _this.getDistance(res.latitude,res.longitude,23.04839,113.399365);
          var distance3 = _this.getDistance(res.latitude,res.longitude,23.048399,113.394487);
@@ -119,7 +125,8 @@ Page({
                   "openId" : res.data.data.openid
                 }
               )
-              
+              wx.setStorageSync('openId', _this.data.openId)
+
               wx.getUserInfo({
                 success : function(res)
                 {
@@ -144,10 +151,6 @@ Page({
                     url: 'https://www.whattoeat.top:9999/api/user/login',
                     method:"POST",
                     data : JSON.stringify(_this.data.loginDTO),
-                    success : function(res)
-                    {
-                      console.log(res)
-                    }
                   })
                 }
               })
@@ -162,6 +165,7 @@ Page({
     else
     {
       _this.setLogin(false)
+      wx.setStorageSync('openId', null)
     }  
     
   }

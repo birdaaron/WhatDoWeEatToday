@@ -2,20 +2,20 @@
 <view>
   <view class="head">
     <view class = "headInfo">
-      <image class="headAvatar"  mode='aspectFill' src="{{isLogin?userAvatar:defaultAvatar}}"></image>
+      <image class="headAvatar"  mode='aspectFill' src="{{isLogin?userInfo.avatarUrl:defaultAvatar}}"></image>
       <view class = "headInfoText">
         <view class = "headName">
           <text style="font-size:50rpx;color:#fff">{{isLogin?userInfo.nickName:defaultName}}</text>
-          <image wx:if="{{isLogin}}" class = "headIcon" mode='aspectFill' src="/image/icon_edit.png" ></image>
+          <image wx:if="{{isLogin}}" class = "headIcon" mode='aspectFill' src="avatarUrl" ></image>
         </view>
         <view class = "headCount">
           <view class="headCountItem">
             <text style="font-size:45rpx;color:#fff">评价</text>
-            <text style="font-size:45rpx;color:#fff;align-self:center">{{isLogin?1:0}}</text>
+            <text style="font-size:45rpx;color:#fff;align-self:center">{{appraisalAmount}}</text>
           </view>
           <view class="headCountItem">
             <text style="font-size:45rpx;color:#fff">评论</text>
-            <text style="font-size:45rpx;color:#fff;align-self:center">{{isLogin?3:0}}</text>
+            <text style="font-size:45rpx;color:#fff;align-self:center">{{commentAmount}}</text>
           </view>
         </view>
       </view>
@@ -27,7 +27,9 @@
       <text style = "font-size:40rpx">我的动态</text>
     </view>
     <view wx:if = "{{isLogin}}" class = "bodyDynamics">
-      <template is = "dynamicsItem"></template>
+      <view wx:for="{{dynamicList}}"> 
+        <template is = "dynamicsItem" data = "{{...item,userInfo}}"></template>
+      </view>
     </view>
    
   </view>
@@ -35,17 +37,17 @@
 <template name = "dynamicsItem">
   <view class = "itemView">
     <view class = "itemHead">
-      <image class="itemAvatar"  mode='aspectFill' src="/image/avatar.jpg"></image>
+      <image class="itemAvatar"  mode='aspectFill' src="{{userInfo.avatarUrl}}"></image>
       <view class="itemHeadText">
-        <text style="font-size:25rpx;font-weight:600;">Sparks20</text>
+        <text style="font-size:25rpx;font-weight:600;">{{userInfo.nickName}}</text>
         <view class = "itemHeadDetailText">
-          <text style="font-size:25rpx;color:gray">30分钟前</text>
-          <text style="font-size:25rpx;color:gray;margin-left:20rpx">评论了番茄炒蛋</text>
+          <text style="font-size:25rpx;color:gray">{{createTime}}</text>
+          <text style="font-size:25rpx;color:gray;margin-left:20rpx">{{appraisal!=null?"评论":"评价"}}了{{dishName}}</text>
         </view>   
       </view>
     </view>
     <view class="itemBody">
-      <text style="font-size:33rpx;margin-left:80rpx;margin-top:20rpx">番茄炒蛋太好吃了</text>
+      <text style="font-size:33rpx;margin-left:80rpx;margin-top:20rpx">{{appraisal!=null?appraisal:support}}</text>
     </view>
   </view>
 </template>
