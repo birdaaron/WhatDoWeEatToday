@@ -10,36 +10,36 @@
       <text style="color:gray">位置：{{dishesData.location}}</text>
     </view>
     <view class = "bodyRight">
-      <image class = "likeImage" mode="aspectFill" src = "/image/icon_like.png"></image>
-      <text style="color:gray;margin-left:5rpx">({{dishesData.support}})</text>
+      <image class = "likeImage" mode="aspectFill" src = "{{isLiked?'/image/icon_like_Click.png':'/image/icon_like_unClick.png'}}" bindtap="onLikeClick"></image>
+      <text style="color:gray;margin-left:5rpx;margin-top:20rpx">({{dishesData.support}})</text>
     </view>
   </view>
   <view class = "grayW"></view>
   <view class = "foot">
       <text style = "font-size:45rpx;font-weight:600;padding-left:20rpx;padding-top:10rpx;paddng-bottom:25rpx;">菜肴评价</text>
-      <template is = "dynamicsItem"></template>
-      <template is = "dynamicsItem"></template><template is = "dynamicsItem"></template><template is = "dynamicsItem"></template><template is = "dynamicsItem"></template>
+      <view wx:for="{{dishesData.appraisalList}}"> 
+        <template is = "dynamicsItem" data = "{{...item,userInfo}}"></template>
+      </view>
     </view>
   <view class = "comment">
-    <input class = "commentInput"auto-focus placeholder="{{isLogin?'留下你的评论吧(●ˇ∀ˇ●)':'登录后才能评论噢(●ˇ∀ˇ●)'}}"/>
-    <view wx:if = "{{isLogin}}" class = "commentBtn">发送</view>
+    <input class = "commentInput"auto-focus placeholder="{{isLogin?'留下你的评论吧(●ˇ∀ˇ●)':'登录后才能评论噢(●ˇ∀ˇ●)'}}" bindinput="onCommentInput"/>
+    <view wx:if = "{{isLogin}}" class = "commentBtn" bindtap="onSendClick">发送</view>
   </view>
 </view>
 
 <template name = "dynamicsItem">
   <view class = "itemView">
     <view class = "itemHead">
-      <image class="itemAvatar"  mode='aspectFill' src="/image/avatar.jpg"></image>
+      <image class="itemAvatar"  mode='aspectFill' src="{{userInfo.avatarUrl}}"></image>
       <view class="itemHeadText">
-        <text style="font-size:25rpx;font-weight:600;">Sparks20</text>
+        <text style="font-size:25rpx;font-weight:600;">{{userInfo.nickName}}</text>
         <view class = "itemHeadDetailText">
-          <text style="font-size:25rpx;color:gray">30分钟前</text>
-        
+          <text style="font-size:28rpx;padding-top:10rpx">{{appraisal}}</text>
         </view>   
+        <view class = "commentGrayW"> </view>
       </view>
+      
     </view>
-    <view class="itemBody">
-      <text style="font-size:33rpx;margin-left:80rpx;margin-top:20rpx">番茄炒蛋太好吃了</text>
-    </view>
+   
   </view>
 </template>

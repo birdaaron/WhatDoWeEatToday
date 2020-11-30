@@ -16,13 +16,26 @@ Page({
   },
   onLoad: function(options)
   {
-    var _this = this;
-    _this.findNearestCanteen();
-    _this.getTop4();
-    _this.setData({
-        time : new Date().toLocaleTimeString().substring(0,2)
+    
+    this.findNearestCanteen();
+    this.getTop4();
+    this.setTime()
+  },
+  setTime()
+  {
+    var hour = new Date().getHours();
+    var result;
+    if(hour>4&&hour<=11)
+      result = "早上"
+    else if(hour>11&&hour<=13)
+      result = "中午"
+    else if(hour>13&&hour<=17)
+      result = "下午"
+    else
+      result = "晚上"
+    this.setData({
+        time : result
     });
-    console.log(new Date().toLocaleTimeString())
   },
   getTop4()
   {
@@ -39,10 +52,7 @@ Page({
       }
     })
   },
-  bdToTx()
-  {
 
-  },
   findNearestCanteen() 
   {
     var _this = this;
@@ -84,6 +94,19 @@ Page({
     wx.navigateTo({
       url: '/pages/chose/chose',
     })
+  },
+  onChoseRandomClick : function(e)
+  {
+    wx.request({
+      url: 'https://www.whattoeat.top:9999/api/random/',
+      success : function(res)
+      {
+        wx.navigateTo({
+          url: '/pages/dishes/dishes?id='+ res.data
+        })
+      }
+    })
+    
   },
   getDistance(lat1,long1,lat2,long2)
   {
@@ -145,8 +168,7 @@ Page({
                   
                     }
                   )
-                  
-                  
+                
                   wx.request({
                     url: 'https://www.whattoeat.top:9999/api/user/login',
                     method:"POST",

@@ -33,8 +33,11 @@
                 active-tab = "2" 
                 bindtabclick = "onTypeTabClick">
                     <block wx:for = "{{dishes}}" wx:key = "name">
-                        <vtab-content tabIndex = "{{index}}">
-                            <template is = "dishesItem" data = "{{...item}}"></template>
+                        <vtab-content tabIndex = "{{index}}" >
+                            <view bindtap = "onDishesClick" data-index ="{{index}}">
+                                <template is = "dishesItem" data = "{{...item}}"></template>
+                            </view>
+                            
                         </vtab-content>
                     </block>
                 </mp-vtabs>

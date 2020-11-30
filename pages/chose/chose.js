@@ -28,7 +28,7 @@ Page({
       }
     })
     wx.request({
-      url: 'https://www.whattoeat.top:9999/api/selectByOneself/list?typeID=3',
+      url: 'https://www.whattoeat.top:9999/api/selectByOneself/list?typeID=2',
       success:function(res)
       {
         _this.setData(
@@ -63,6 +63,18 @@ Page({
     wx.navigateTo({
       url: '/pages/window/window?canteen='+ currentCanteen
     })
+  },
+  onDishesClick : function (e)
+  {
+    
+    var _this = this;
+    var currentIndex = e.currentTarget.dataset.index;
+    var currentId = _this.data.dishes[currentIndex].id;
+    
+    wx.navigateTo({
+      url: '/pages/dishes/dishes?id='+ currentId
+    })
+    
   }
 
 })

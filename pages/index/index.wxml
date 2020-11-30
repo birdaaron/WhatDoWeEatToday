@@ -38,7 +38,7 @@
     </view>
   </button>
   <button style="width:650rpx;" class="bodyButton">
-    <view class="bodyButtonView">
+    <view class="bodyButtonView" bindtap="onChoseRandomClick">
       <image class="bodyButtonIcon" mode="aspectFill" src="/image/icon_chose_random.png"></image>
       <view class="bodyButtonTextView">
         <text>随机选餐</text>

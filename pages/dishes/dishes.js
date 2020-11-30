@@ -6,12 +6,11 @@ Page({
     dishesId: 2,
     dishesData :{},
     isLogin:false,
-    userInfo:{}
+    userInfo:{},
+    comment:"",
+    isLiked:false,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var _this = this;
     this.setData(
@@ -21,6 +20,36 @@ Page({
         isLogin : getApp().globalData.isLogin
       }
     )
+    this.loadInformation()
+    if(this.data.isLogin)
+      this.checkLike()
+  },
+  checkLike()
+  {
+    var _this = this
+    var openId = wx.getStorageSync('openId')
+    var supportRecordDTO = 
+    {
+      "dishesId": _this.data.dishesId,
+	    "openId": openId
+    }
+
+    wx.request({
+      url: 'https://www.whattoeat.top:9999/api/dishDetail/flag',
+      method:"POST",
+      data : JSON.stringify(supportRecordDTO),
+      success : function(res)
+      {
+        _this.setData({
+          isLiked : res.data.data
+        })
+        
+      }
+    })
+  },
+  loadInformation()
+  {
+    var _this = this;
     wx.request({
       url: 'https://www.whattoeat.top:9999/api/dishDetail/'+ _this.data.dishesId,
       success : function(res)
@@ -30,57 +59,60 @@ Page({
             dishesData : res.data.data
           }
         )
-        console.log(res.data.data)
+        
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
+  onLikeClick:function(e)
+  {
+    var isLiked = this.data.isLiked
+    var dishesId = this.data.dishesId;
+    var openId = wx.getStorageSync('openId')
+    var supportRecordDTO = 
+    {
+      "dishesId": dishesId,
+	    "openId": openId
+    }
+    
+    if(this.data.isLogin&& !isLiked)
+      {
+          console.log(1111)
+          this.setData({
+            isLiked : true
+          })
+          wx.request({
+            url: 'https://www.whattoeat.top:9999/api/dishDetail/',
+            method : "PUT",
+            data : JSON.stringify(supportRecordDTO)
+          })
+    
+      }
 
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  onCommentInput: function(e)
+  {
+    this.setData(
+      {
+        comment : e.detail.value
+      }
+    )
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onSendClick : function(e)
+  {
+    var _this = this
+    var openId = wx.getStorageSync('openId')
+    var comment = _this.data.comment
+    var dishesId = _this.data.dishesId;
+    
+    if(this.data.comment!="")
+      wx.request({
+        url: 'https://www.whattoeat.top:9999/api/dishDetail/?appraisal='+comment+"&dishesId="+dishesId+"&openId="+openId,
+        method:"POST",
+        
+        success : function(res)
+        {
+          _this.loadInformation()
+        }
+      })
   }
 })
